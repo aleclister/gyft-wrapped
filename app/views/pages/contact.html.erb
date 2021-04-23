@@ -1,10 +1,11 @@
-<p>Now is <%= Time.now %><p>
+<div class="container text-center contact-us-container">
 
-<h2>Meet our team</h2>
-<ol>
-  <% @members.each do |member| %>
-    <li><%= member.capitalize %></li>
-  <% end %>
-</ol>
+	<h2>Meet our team</h2>
+	<ol>
+	  <% @members.each do |member| %>
+	    <li><%= member.capitalize %></li>
+	  <% end %>
+	</ol>
 
-<%= link_to "Know more about us", about_path %>
+	<%= link_to "Know more about our company", about_path %>
+</div>
