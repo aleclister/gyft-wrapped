@@ -1,18 +1,30 @@
-
-<div class="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_url 'home-banner.png' %>);">
-  <div class="banner-content">
-    <h1>Welcome to Gift Wrapped</h1>
-    <p>Very cool stuff, useful and smart</p>
-    <div class="top">
-      <a class="topArrow"><i class="fa fa-angle-down fa-inverse fa-5x" aria-hidden="true"></i></a>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url 'home-banner.png' %>);">
+  <div class="container banner-content">
+    <h1>Welcome to GyftWrapped, the future of gift giving!</h1>
+    <p>Never worry again about forgetting a birthday or anniversary,</p>
+    <p>and <strong>never</strong> have trouble finding the perfect gift</p> 
+    <br>
+    <a class="btn btn-primary" href="#">Join now</a>
   </div>
 </div>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 50 %>
-    </div>
+
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_url 'card-giftbox-home' %>);">
+</div>
+
+
+
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_url 'card-friends-home.jpeg' %>);">
+    Friends
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_url 'card-family-home.jpeg' %>);">
+    Family
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_url 'card-colleagues-home.jpeg' %>);">
+    Colleagues
   </div>
 </div>
