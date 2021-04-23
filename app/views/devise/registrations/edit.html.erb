@@ -1,6 +1,5 @@
-<div class="container text-center" style="max-width:600px; padding-bottom:50px;">
+<div class="container text-center edit_user">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <br>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
