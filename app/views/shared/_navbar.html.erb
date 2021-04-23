@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
         <form class="form-inline">
           <button class="btn btn-outline-primary" type="button">Dashboard</button>
-
+        </form>
         <div style="padding-left:15px">
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -24,6 +24,7 @@
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
+        </div>
 
       <% else %>
         <form class="form-inline">
@@ -39,7 +40,6 @@
         </form>
 
       <% end %>
-        </div>
-
     </ul>
+  </div>
 </div>
