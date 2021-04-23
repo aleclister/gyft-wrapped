@@ -18,7 +18,7 @@
         <div style="padding-left:15px">
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-right" style="margin-top: 10px;" aria-labelledby="navbarDropdown">
               <%= link_to "About", "/about", class: "dropdown-item" %>
               <%= link_to "Contact Us", "/contact", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
