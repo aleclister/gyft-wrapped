@@ -1,11 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" style="color:gray;">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <h3 style="color: pink;"><strong>GyftWrapped</strong></h3>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -15,7 +16,7 @@
         <form class="form-inline">
           <button class="btn btn-outline-primary" type="button">Dashboard</button>
         </form>
-        <div style="padding-left:15px">
+        <div style="padding-left:35px">
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
@@ -35,8 +36,8 @@
             <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
           </li> 
 
-          <div style="padding-left:10px;">
-            <a class="btn btn-outline-success" href="/users/sign_up" role="button">
+          <div style="padding-left:30px; padding-right:30px;">
+            <a class="btn btn-success" href="/users/sign_up" role="button">
             Sign Up
             </a>
           </div>
