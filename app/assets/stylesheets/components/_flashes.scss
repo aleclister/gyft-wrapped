@@ -20,3 +20,25 @@
 .flash-danger {
   border: 2px solid #FD1015;
 }
+
+
+
+.alert {
+  animation: hideMe 10s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+}
+@keyframes hideMe {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
