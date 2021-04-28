@@ -15,19 +15,19 @@
 }
 
 .pastel-cards {
-  background-size: cover;
-  background-position: center;
   height: 200px;
   margin: 40px;
-  display: flex;
+  padding: 40px 40px 40px 40px;
+  // display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 24px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  p {
+    font-size: 16px;
+    padding-top: 5px;
+  }
 }
 
 
@@ -69,5 +69,29 @@
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+
+.blue-bkg {
+  background-color: $pastel-blue;
+  h3, p{
+    color: #2d6187;
+
+  }
+}
+
+.pink-bkg {
+  background-color: $pastel-pink;
+  h3, p {
+    color: #a9294f;
+  }
+}
+
+.green-bkg {
+  background-color: $pastel-green;
+    h3, p {
+    color: #276678;
   }
 }
