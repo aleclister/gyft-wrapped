@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root            to: 'pages#home'
   get 'about',    to: 'pages#about' ,     as: :about
   get 'contact',  to: 'pages#contact',    as: :contact
+  get 'dashboard', to: 'pages#dashboard',     as: :dashboard
+  get  'relationprofile', to:  'pages#relationprofile', as: :relationprofile
+  resources :users
 #  get 'relations' to: 'relations#index'
 #
 authenticate :user, ->(user) { user.admin? } do

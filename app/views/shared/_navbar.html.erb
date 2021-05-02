@@ -23,7 +23,7 @@
 
       <% if user_signed_in? %>
         <form class="form-inline">
-          <button class="btn btn-outline-primary" type="button">Dashboard</button>
+          <button class="btn btn-outline-primary" type="button"><%= link_to "Dashboard", dashboard_path %></li></button>
         </form>
         <div style="padding-left:35px">
           <li class="nav-item dropdown">

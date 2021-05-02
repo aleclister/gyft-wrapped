@@ -1,0 +1,69 @@
+<div class="container" style="padding: 100px 250px  100px;">
+  <section class="header-block row" id="header-block" >
+    <% @relations.each do |relation|   %>
+    <div class="col-xs mr-2">
+      <a  class="text-center" href="<%= relationprofile_path(:id=> relation.id) %>">
+        <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
+        style="width:50px; height: 50px;">
+        <br>
+        <span><%= relation.first_name %></span>
+      </a>
+    </div>
+    <% end %>
+    <button class="btn-primary  col-xs" style="width:100px; height:40px;">showmore</button>
+    <button class="btn-primary  col-xs" style="margin-left:15px; width:100px; height:40px;">Add</button>
+  </section>
+  <section class="content-block " id="content-block" style=" padding-top: 30px;">
+  <% @index=1 %>
+  <% @sorting_relations.zip(@sorting_hobbies).each do |sorting_relations, sorting_hobbies|   %>
+    <div  id="birth_sort_block" style="margin-top:20px; margin-bottom: 20px;">
+      <div class="row" id="private_info">
+        <div class="col-xs-2 avatar_part" style="padding-right: 30px;">
+          <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
+               style="width:50px; height: 50px;">
+        </div>
+        <div class="col-xs-4 left_info_part" style="padding-right: 80px;">
+          <span>Name: <%= sorting_relations.first_name %> </span><br>
+          <span>DAYS until <%= sorting_relations.date_of_birth %> </span>
+        </div>
+        <div class="col-xs-4 right_info_part" style="padding-left: 70px;">
+          <span>Relationship: <%= sorting_relations.relationship_name %> </span><br>
+          <span>Hobbies :<%=  sorting_hobbies.hobby_name %>  </span>
+        </div>
+      </div>
+      <% if @index==1 %>
+      <div class="row" style="padding-top: 20px; ">
+        <% @first_products.each do | products | %>
+        <div class="col-xs" style="cursor:pointer; padding-right: 80px;  ">
+          <%= products.name %> <br> Card
+        </div>
+        <% end %>
+        <% @index=2 %>
+      </div>
+      <% else %>
+        <div class="row" >
+          <% @second_products.each do | products | %>
+            <div class="col-xs" style="cursor:pointer; padding-right: 80px;  ">
+              <%= products.name %> <br> Card
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </section>
+
+  <section class="upcoming-holidays" style="padding-top: 50px;">
+    <div class="row" style="display:block;">
+      <h5 style="text-align: center;">upcoming holidays</h5>
+    </div>
+    <div class="row" >
+    <% @holidays.each do | holiday |  %>
+      <div class="col-xs-2" style="padding-right: 50px;">
+        <%= holiday.name %><br>
+        <%= holiday.date %>
+      </div>
+      <% end %>
+    </div>
+  </section>
+</div>

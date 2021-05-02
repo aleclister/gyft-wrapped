@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_191110) do
+ActiveRecord::Schema.define(version: 2021_04_30_191142) do
 
   create_table "blazer_audits", force: :cascade do |t|
     t.integer "user_id"
@@ -74,17 +74,35 @@ ActiveRecord::Schema.define(version: 2021_03_29_191110) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "holidays", force: :cascade do |t|
+    t.string "name"
+    t.string "date"
+    t.datetime "real_date"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "hobby_id"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "age"
+    t.string "gender"
+  end
+
   create_table "relations", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.date "date_of_birth"
     t.string "address"
     t.string "gender"
-    t.string "relation_to"
-    t.string "hobbies"
+    t.integer "relation_to"
+    t.integer "hobbies_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price_range"
+    t.integer "age"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -99,16 +117,20 @@ ActiveRecord::Schema.define(version: 2021_03_29_191110) do
     t.date "date_of_birth"
     t.string "address"
     t.string "relations"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "admin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "hobbies", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "relations", "hobbies", column: "hobbies_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "relations", "relationships", column: "relation_to", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "relations", "users", on_update: :cascade, on_delete: :cascade
 end
