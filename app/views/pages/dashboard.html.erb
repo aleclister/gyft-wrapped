@@ -24,7 +24,7 @@
         </div>
         <div class="col-xs-4 left_info_part" style="padding-right: 80px;">
           <span>Name: <%= sorting_relations.first_name %> </span><br>
-          <span>DAYS until <%= sorting_relations.date_of_birth %> </span>
+          <span>DAYS until: <%= sorting_relations.date_of_birth.to_date.day.to_s %> </span>
         </div>
         <div class="col-xs-4 right_info_part" style="padding-left: 70px;">
           <span>Relationship: <%= sorting_relations.relationship_name %> </span><br>

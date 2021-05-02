@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_191142) do
+ActiveRecord::Schema.define(version: 2021_05_01_191111) do
 
   create_table "blazer_audits", force: :cascade do |t|
     t.integer "user_id"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2021_04_30_191142) do
   create_table "holidays", force: :cascade do |t|
     t.string "name"
     t.string "date"
-    t.datetime "real_date"
+    t.date "real_date"
   end
 
   create_table "products", force: :cascade do |t|
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2021_04_30_191142) do
   create_table "relations", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.date "date_of_birth"
+    t.string "date_of_birth"
     t.string "address"
     t.string "gender"
     t.integer "relation_to"
