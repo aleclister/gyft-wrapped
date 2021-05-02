@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'contact',  to: 'pages#contact',    as: :contact
   get 'dashboard', to: 'pages#dashboard',     as: :dashboard
   get  'relationprofile', to:  'pages#relationprofile', as: :relationprofile
+  get 'addRelation', to: 'relations#add',    as: :addRelation
+  post 'relations', to:'relations#create', as: :relations
   resources :users
 #  get 'relations' to: 'relations#index'
 #
