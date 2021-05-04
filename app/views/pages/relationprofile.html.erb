@@ -7,11 +7,14 @@
         </div>
         <div class="col-xs-4" style="padding-left:50px;">
           <span>Name: <%= @relations.first_name %> </span><br>
-          <span>Hobby: <%= @hobby %> </span><br>
+          <span>Hobby: <% @hobbies.each do |hobby| %>
+              <%= hobby.name %> ,
+            <% end %>
+          </span><br>
           <span>Relationship: <%= @relation_name %> </span>
         </div>
         <div class="col-xs-4" style="padding-left:50px;">
-          <span>Price: <%= @relations.price_range %> </span><br>
+          <span>Price: $<%= @from %> ~ $<%= @to %></span><br>
           <span>Birthday: <%= @birthday.month.to_s+ '-' +@birthday.day.to_s %> </span><br>
         </div>
       </div>

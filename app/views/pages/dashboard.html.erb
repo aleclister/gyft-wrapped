@@ -15,7 +15,7 @@
   </section>
   <section class="content-block " id="content-block" style=" padding-top: 30px;">
   <% @index=1 %>
-  <% @sorting_relations.zip(@sorting_hobbies).each do |sorting_relations, sorting_hobbies|   %>
+  <% @sorting_relations.each do |sorting_relations|   %>
     <div  id="birth_sort_block" style="margin-top:20px; margin-bottom: 20px;">
       <div class="row" id="private_info">
         <div class="col-xs-2 avatar_part" style="padding-right: 30px;">
@@ -27,8 +27,19 @@
           <span>DAYS until: <%= sorting_relations.date_of_birth.to_date.day.to_s %> </span>
         </div>
         <div class="col-xs-4 right_info_part" style="padding-left: 70px;">
-          <span>Relationship: <%= sorting_relations.relationship_name %> </span><br>
-          <span>Hobbies :<%=  sorting_hobbies.hobby_name %>  </span>
+          <span>Hobbies:
+            <% if @index==1 %>
+              <% @hobbies1.each do |hobby1| %>
+                 <%= hobby1.name %>,
+              <% end %>
+            <% else %>
+            <% @hobbies2.each do |hobby2| %>
+                 <%= hobby2.name %>,
+              <% end %>
+            <% end %>
+          </span><br>
+          <span>Relationship: <%= sorting_relations.relationship_name %> </span>
+
         </div>
       </div>
       <% if @index==1 %>

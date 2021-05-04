@@ -1,3 +1,12 @@
+gem 'jquery-rails'
+gem 'popper_js', '~> 1.11.1'
+gem 'bootstrap', '4.0.0.alpha6'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+  # add the line below
+  gem 'rails-assets-chosen'
+end
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -7,6 +16,9 @@ ruby '2.6.6'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '1.4.2'
+
+# Use bootstrap-datepicker
+gem 'bootstrap-datepicker-rails'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

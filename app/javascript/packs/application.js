@@ -6,14 +6,38 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("channels")
+//= require bootstrap-datepicker
+//= require chosen
+//= require jquery
+//= require jquery_ujs
+//= require popper
+//= require tether
+//= require bootstrap-sprockets
+//= require turbolinks
+//= require_tree .
 
 import 'bootstrap';
+global.$ = require("jquery")
+
+require("jquery") // Don't really need to require this...
+require("jquery-ui")
+require("chosen-js")
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
+  $(function(){
+    $('#birthdayField').datepicker( { dateFormat: 'yy/mm/dd' } );
+    $('#relation_hobbies_id').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    });
+  })
+
+
 });
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

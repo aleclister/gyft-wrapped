@@ -1,33 +1,31 @@
 <div class="container">
-  <div style="padding:150px 300px 150px 300px">
+  <div style="padding:150px 300px 150px 300px" >
     <h2>Add Relation</h2>
     <br>
     <br>
-    <%= form_for(@relation) do |f| %>
+    <%= simple_form_for @relation, url:relations_path do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.label :firstName,required: true %>
       <%= f.text_field :first_name %>
       <br>
       <%= f.label :lastName,required: true %>
       <%= f.text_field :last_name %>
-      <br>
-      <%= f.label :dateofBirth,required: true %>
-      <%= f.text_field :date_of_birth %>
-      <br>
+       <br>
       <%= f.label :relationship,required: true %>
       <%= f.select :relation_to, @relationships.collect { |relationship| [relationship.name, relationship.id] } %>
       <br>
-      <%= f.label :hobby,required: true %>
-      <%= f.select :hobbies_id, @hobbies.collect { |hobby| [hobby.name, hobby.id] } %>
+      <%= f.input :hobbies_id,  as: :select, collection: Hobby.order(:name), label_method: :name, input_html: {multiple: true} %>
+
+      <br>
+
+      <%= f.label :date_of_birth,required: true %>
+      <%= f.text_field :date_of_birth, :id=>'birthdayField', :class=>'datepicker' %>
       <br>
       <%= f.label :gender,required: true  %>
       <%= f.text_field :gender %>
       <br>
-      <%= f.label :age,required: true %>
-      <%= f.text_field :age %>
-      <br>
       <%= f.label :price ,required: true %>
-      <%= f.text_field :price_range %>
+      <%= f.select :price_range, @prices.collect { |price| [price.detail, price.id] }  %>
       <br>
       <%= submit_tag  "Add Relation" %>
     <% end %>
