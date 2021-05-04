@@ -81,9 +81,11 @@ ActiveRecord::Schema.define(version: 2021_05_03_191122) do
   end
 
   create_table "prices", force: :cascade do |t|
+    t.string "detail"
     t.float "from_price"
     t.float "to_price"
-    t.string "detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -103,12 +105,12 @@ ActiveRecord::Schema.define(version: 2021_05_03_191122) do
     t.string "address"
     t.string "gender"
     t.integer "relation_to"
+    t.string "hobbies_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price_range"
     t.integer "age"
-    t.string "hobbies_id", default: "{}"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -145,6 +147,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_191122) do
   end
 
   add_foreign_key "products", "hobbies", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "relations", "hobbies", column: "hobbies_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "prices", column: "price_range", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "relationships", column: "relation_to", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "users", on_update: :cascade, on_delete: :cascade
