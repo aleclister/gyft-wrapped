@@ -1,7 +1,7 @@
 class RelationsController < ApplicationController
-  def index
-    params[:tag] ? @relations = Relation.tagged_with(params[:tag]) : @relations = Relation.all
-  end
+  # def index
+  #   params[:tag] ? @relations = Relation.tagged_with(params[:tag]) : @relations = Relation.all
+  # end
   def add
     @relationships=Relationship.all
     @hobbies=Hobby.all

@@ -1,7 +1,7 @@
 class Relation < ApplicationRecord
-  has_many :taggings
-  has_many :hobbies, through: :taggings
-  serialize :hobby_ids, Array
+  # has_many :taggings
+  # has_many :hobbies, through: :taggings
+  # serialize :hobby_ids, Arrays
 
   def self.tagged_with(name)
     Hobby.find_by!(name: name).relations

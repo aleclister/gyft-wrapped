@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_191101) do
+ActiveRecord::Schema.define(version: 2021_05_04_191102) do
 
   create_table "blazer_audits", force: :cascade do |t|
     t.integer "user_id"
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 2021_05_04_191101) do
     t.integer "relation_to"
     t.string "hobbies_id"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "price_range"
     t.integer "age"
   end
@@ -117,15 +117,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_191101) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer "hobbies_id"
-    t.integer "relations_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["hobbies_id"], name: "index_taggings_on_hobbies_id"
-    t.index ["relations_id"], name: "index_taggings_on_relations_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -150,6 +141,4 @@ ActiveRecord::Schema.define(version: 2021_05_04_191101) do
   add_foreign_key "relations", "prices", column: "price_range", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "relationships", column: "relation_to", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "users", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "taggings", "hobbies", column: "hobbies_id"
-  add_foreign_key "taggings", "relations", column: "relations_id"
 end

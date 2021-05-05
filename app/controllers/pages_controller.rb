@@ -57,7 +57,7 @@ class PagesController < ApplicationController
     end
 
     @t=Time.now
-    @level=@t.strftime("%Y/%m/%d")
+    @level=@t.strftime("%Y-%m-%d")
     @holidays=Holiday.where('real_date> ?', @level).order(real_date: :ASC).limit(5)
     # puts @sorting_relations
     # puts @sorting_hobbies
