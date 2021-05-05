@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard',     as: :dashboard
   get  'relationprofile', to:  'pages#relationprofile', as: :relationprofile
   get 'addRelation', to: 'relations#add',    as: :addRelation
-  post 'relations/:id', to:'relations#create', as: :relations
+  post 'relations', to:'relations#create', as: :relations
   get 'product', to: 'products#show', as: :productshow
   # get 'tags/:tag', to: 'relations#index', as: :tag
   resources :users
