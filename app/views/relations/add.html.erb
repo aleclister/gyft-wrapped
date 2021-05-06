@@ -22,7 +22,7 @@
       <%= f.text_field :date_of_birth, :id=>'birthdayField', :class=>'datepicker' %>
       <br>
       <%= f.label :gender,required: true  %>
-      <%= f.text_field :gender %>
+      <%= f.select :gender, @genders.collect { |gender| [gender.name, gender.id] }%>
       <br>
       <%= f.label :price ,required: true %>
       <%= f.select :price_range, @prices.collect { |price| [price.detail, price.id] }  %>

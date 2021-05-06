@@ -5,6 +5,7 @@ class RelationsController < ApplicationController
   def add
     @relationships=Relationship.all
     @hobbies=Hobby.all
+    @genders=Gender.all
     @relation = Relation.new
     @prices=Price.all
   end

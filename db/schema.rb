@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_191106) do
+ActiveRecord::Schema.define(version: 2021_05_06_191107) do
 
   create_table "ages", force: :cascade do |t|
     t.string "details"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_191106) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "age"
-    t.string "gender"
+    t.integer "gender"
   end
 
   create_table "relations", force: :cascade do |t|
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_191106) do
   end
 
   add_foreign_key "products", "ages", column: "age"
+  add_foreign_key "products", "genders", column: "gender"
   add_foreign_key "products", "hobbies", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "genders", column: "gender"
   add_foreign_key "relations", "prices", column: "price_range", on_update: :cascade, on_delete: :cascade
