@@ -1,0 +1,19 @@
+<div class="row" id="data_stats">
+  <div id="products" class="row">
+    <% @products.each do |product| %>
+      <div class="col-xs" style="padding-right: 30px;">
+        <div class="row">
+          <div class="col-xs">
+            <img src="<%= asset_url 'default_avatar.png' %>">
+          </div>
+          <div class="col-xs">
+            <span>Product</span><br>
+            <span><%= product.name %></span><br>
+            <span><%= product.price %></span><br>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

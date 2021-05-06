@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_191102) do
+ActiveRecord::Schema.define(version: 2021_05_05_191106) do
+
+  create_table "ages", force: :cascade do |t|
+    t.string "details"
+    t.integer "from_age"
+    t.integer "to_age"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "blazer_audits", force: :cascade do |t|
     t.integer "user_id"
@@ -68,6 +76,12 @@ ActiveRecord::Schema.define(version: 2021_05_04_191102) do
     t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
   end
 
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "hobbies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -103,7 +117,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_191102) do
     t.string "last_name"
     t.string "date_of_birth"
     t.string "address"
-    t.string "gender"
+    t.integer "gender"
     t.integer "relation_to"
     t.string "hobbies_id"
     t.integer "user_id"
@@ -137,7 +151,9 @@ ActiveRecord::Schema.define(version: 2021_05_04_191102) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "ages", column: "age"
   add_foreign_key "products", "hobbies", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "relations", "genders", column: "gender"
   add_foreign_key "relations", "prices", column: "price_range", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "relationships", column: "relation_to", on_update: :cascade, on_delete: :cascade
   add_foreign_key "relations", "users", on_update: :cascade, on_delete: :cascade

@@ -33,6 +33,23 @@ document.addEventListener('turbolinks:load', () => {
       allow_single_deselect: true,
       width: '100%'
     });
+    $('#product_hobby_id').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    });
+    $('#product_gender').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    });
+    $('#product_price').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    });
+    $('#product_age').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    });
+
   })
 
 
