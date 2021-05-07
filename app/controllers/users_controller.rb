@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	def dashboard
+def dashboard
     @now=Time.now
     @next_month=@now.next_month
     @month=@now.to_date.month
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   end
 
 
-    def generate_date(month, day)
+  def generate_date(month, day)
     if month<10
       @month_str='0' + month.to_s
     else

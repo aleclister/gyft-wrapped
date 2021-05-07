@@ -77,7 +77,7 @@ onetofifteen.save!
 fifteentothirty = Price.new(detail: "$15 - $30", from_price:15, to_price:30)
 fifteentothirty.save!
 
-thirtytofifty = Price.new(detail: "$30 - $50", from_price:3, to_price:50)
+thirtytofifty = Price.new(detail: "$30 - $50", from_price:30, to_price:50)
 thirtytofifty.save!
 
 fiftytohundred = Price.new(detail: "$50 - $100", from_price:50, to_price:100)

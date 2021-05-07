@@ -1,0 +1,35 @@
+.relations-avatars-container {
+	background-color: white;
+	padding: 30px;
+	display: flex;
+	border-radius: 8px;
+	text-align: center;
+	a {
+		margin-right: 10px;
+		margin-left: 10px;
+		justify-content: center;
+	}
+	p {
+		text-align: center;
+	}
+}
+
+
+.dashboard-upcoming-birthdays {
+	background-color: white;
+	padding: 50px;
+	border-radius: 8px;
+	margin-top: 20px;
+	// margin-right: 5px;
+}
+
+.upcoming-holidays {
+	background-color: white;
+	padding: 50px;
+	border-radius: 8px;
+	margin-top: 20px;
+	margin-left:40px;
+	h5 {
+		padding-bottom: 10px;
+	}
+}
