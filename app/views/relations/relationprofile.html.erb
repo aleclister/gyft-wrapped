@@ -1,5 +1,5 @@
-<div class="container" style="padding-top: 150px;">
-  <section  style="padding-left:200px; padding-right: 200px;">
+<div class="relation-profile-container" style="padding-top: 150px;">
+  <section style="padding-left:200px; padding-right: 200px;">
       <div class="row">
         <div class="col-xs-2">
           <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
@@ -14,7 +14,7 @@
           <span>Relationship: <%= @relation_name %> </span>
         </div>
         <div class="col-xs-4" style="padding-left:50px;">
-          <span>Price: $<%= @from %> ~ $<%= @to %></span><br>
+          <span>Price range: $<%= @from %> ~ $<%= @to %></span><br>
           <span>Birthday: <%= @birthday.month.to_s+ '-' +@birthday.day.to_s %> </span><br>
         </div>
       </div>
