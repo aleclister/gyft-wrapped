@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   root            to: 'pages#home'
   get 'about',    to: 'pages#about' ,     as: :about
   get 'contact',  to: 'pages#contact',    as: :contact
-  get 'dashboard', to: 'pages#dashboard',     as: :dashboard
-  get  'relationprofile', to:  'pages#relationprofile', as: :relationprofile
+  get 'dashboard', to: 'users#dashboard',     as: :dashboard
+  get  'relationprofile', to:  'relations#relationprofile', as: :relationprofile
   get 'addRelation', to: 'relations#add',    as: :addRelation
   post 'relations', to:'relations#create', as: :relations
   get 'product', to: 'products#show', as: :productshow
