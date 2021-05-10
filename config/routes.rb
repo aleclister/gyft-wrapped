@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'addRelation', to: 'relations#add',    as: :addRelation
   post 'relations', to:'relations#create', as: :relations
   get 'product', to: 'products#show', as: :productshow
-  get 'index', to:  'products#index', as: :index
+  get 'all-products', to:  'products#index', as: :productindex
   post  'products/_data_stats', to: 'products#index', as: :product_data_stats
   # get 'tags/:tag', to: 'relations#index', as: :tag
   resources :users

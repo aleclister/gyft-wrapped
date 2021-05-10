@@ -188,6 +188,9 @@ puts 'Creating holidays...'
 christmas = Holiday.new(name: "Christmas", date: "25th December", real_date: "2021/12/25")
 christmas.save!
 
+fathersday = Holiday.new(name: "Father's day", date: "20th June", real_date: "2021/06/20")
+fathersday.save!
+
 valentines = Holiday.new(name: "Valentines", date: "14th February", real_date: "2022/02/14")
 valentines.save!
 

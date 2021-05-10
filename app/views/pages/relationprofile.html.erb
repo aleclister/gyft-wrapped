@@ -6,17 +6,16 @@
     </div>
     <div class="col-xs-5">
       <ul>
-        <li>Name: <%= @relations.first_name %> <%= @relations.last_name %></li>
+        <li>Name: <%= @relations.first_name %> <%= @relations.last_name %> (<%= @relation_name %>)</li>
         <li>Hobbies: <% @hobbies.each do |hobby| %>
           <%= hobby.name %> ,
         <% end %></li>
-        <li>Relationship with you: <%= @relation_name %></li>
       </ul>
     </div>
     <div class="col-xs-5">
       <ul>
         <li>Price range: $<%= @from.floor %> ~ $<%= @to.floor %></li>
-        <li>Birthday: <%= @birthday.month.to_s+ '-' +@birthday.day.to_s %> </li>
+        <li>Birthday: <%= @birthday.month.to_s+ '-' +@birthday.day.to_s+ '-' +@birthday.year.to_s %> </li>
       </ul>
     </div>
   </div>

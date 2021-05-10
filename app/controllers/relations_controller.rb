@@ -12,14 +12,14 @@ class RelationsController < ApplicationController
   end
 
   def create
-    @array_with_null=params[:relation][:hobbies_id]
-    @hobbies_array=@array_with_null.join(' ').split
-    @hobbies=@hobbies_array.map(&:inspect).join(",")
-    @birthday=params[:relation][:date_of_birth]
-    @month=@birthday.to_date.month
-    @day=@birthday.to_date.day
+    @array_with_null = params[:relation][:hobbies_id]
+    @hobbies_array = @array_with_null.join(' ').split
+    @hobbies = @hobbies_array.map(&:inspect).join(",")
+    @birthday = params[:relation][:date_of_birth]
+    @month = @birthday.to_date.month
+    @day = @birthday.to_date.day
     @date_of_birth=generate_date(@month,@day)
-    @age=age(@birthday.to_date)
+    @age = age(@birthday.to_date)
     @relation = Relation.new(user_params.merge(date_of_birth:@date_of_birth, age:@age, hobbies_id:@hobbies))
     # puts "birthday===>", @birthday, "dateofbirth==>", @month, @day, @date_of_birth, "age==>",@age
     if @relation.save
