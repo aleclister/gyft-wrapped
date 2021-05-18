@@ -1948,3 +1948,138 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+
+
+
+
+
+
+.rounded {
+  border-radius: 0.75rem !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
+}
+
+.rounded-1 {
+  border-radius: 0.5rem !important;
+}
+
+.rounded-2 {
+  border-radius: 0.75rem !important;
+}
+
+.rounded-3 {
+  border-radius: 1rem !important;
+}
+
+
+
+
+
+.bg-none {
+  background: none !important;
+}
+
+.bg-faded-primary {
+  background-color: rgba(118, 109, 244, 0.08) !important;
+}
+
+.bg-faded-success {
+  background-color: rgba(22, 201, 149, 0.08) !important;
+}
+
+.bg-faded-info {
+  background-color: rgba(106, 155, 244, 0.08) !important;
+}
+
+.bg-faded-warning {
+  background-color: rgba(255, 177, 92, 0.08) !important;
+}
+
+.bg-faded-danger {
+  background-color: rgba(247, 79, 120, 0.08) !important;
+}
+
+.bg-faded-light {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.bg-faded-dark {
+  background-color: rgba(55, 56, 78, 0.08) !important;
+}
+
+.bg-size-cover {
+  background-size: cover !important;
+}
+
+.bg-size-contain {
+  background-size: contain !important;
+}
+
+.bg-position-center {
+  background-position: center !important;
+}
+
+.bg-position-center-y {
+  background-position: left center !important;
+}
+
+.bg-position-center-x {
+  background-position: center top !important;
+}
+
+.bg-position-top-end {
+  background-position: top right !important;
+}
+
+.bg-position-top-start {
+  background-position: top left !important;
+}
+
+.bg-position-center-end {
+  background-position: center right !important;
+}
+
+.bg-position-center-start {
+  background-position: center left !important;
+}
+
+.bg-position-center-bottom {
+  background-position: center bottom !important;
+}
+
+.bg-position-bottom-end {
+  background-position: bottom right !important;
+}
+
+.bg-position-bottom-start {
+  background-position: bottom left !important;
+}
+
+.bg-position-bottom-center {
+  background-position: bottom center !important;
+}
+
+.bg-repeat-0 {
+  background-repeat: no-repeat !important;
+}
+
+.bg-repeat-x {
+  background-repeat: repeat-x !important;
+}
+
+.bg-repeat-y {
+  background-repeat: repeat-y !important;
+}
+
+.bg-attachment-fixed {
+  background-attachment: fixed !important;
+}
+
+.bg-attachment-scroll {
+  background-attachment: scroll !important;
+}
