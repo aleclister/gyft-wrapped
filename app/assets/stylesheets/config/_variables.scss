@@ -1,3 +1,12 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background:#f7f7fc;
+}
+
+
+
 .shadow {
   box-shadow: 0 0 0.625rem -0.1875rem rgba(0, 0, 0, 0.13) !important;
 }

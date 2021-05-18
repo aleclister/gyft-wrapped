@@ -1,17 +1,19 @@
-<body style="background-color:#f7f7fc;">
-  
-<!--   <div class="position-relative bg-gradient" style="height: 480px;">
-    <div class="shape shape-bottom shape-slant bg-secondary d-none d-lg-block">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
-        <polygon fill="primary" points="0,257 0,260 3000,260 3000,0"></polygon>
-      </svg>
-    </div>
-  </div>
 
- -->
 <div class="container position-relative zindex-5 pb-4 mb-md-3" style="margin-top: 100px;">
   <div class="row">
+
     <div class="col-lg-4 mb-4 mb-lg-0">
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Welcome Alec</h1>
+      <div class=" dash-user-menu rounded-3 shadow-lg">
+
+
+        <div class="d-lg-none px-4 pb-4 text-center"><a class="btn btn-primary px-5 mb-2" href="#account-menu" data-bs-toggle="collapse"><i class="ai-menu me-2"></i>Account menu</a></div>
+              <div class="d-lg-block collapse pb-2" id="account-menu">
+                <h3 class="text-center d-block fs-sm fw-semibold text-muted mb-0 px-4 py-3">Dashboard</h3><a class="d-flex align-items-center nav-link-style px-4 py-3" href="dashboard-orders.html"><i class="ai-shopping-bag fs-lg opacity-60 me-2"></i>All Relations<span class="nav-indicator"></span><span class="text-muted fs-sm fw-normal ms-auto">12</span></a><a class="d-flex align-items-center nav-link-style px-4 py-3 border-top" href="dashboard-sales.html"><i class="ai-dollar-sign fs-lg opacity-60 me-2"></i>Orders<span class="text-muted fs-sm fw-normal ms-auto">4</span></a><a class="d-flex align-items-center nav-link-style px-4 py-3 border-top" href="dashboard-messages.html"><i class="ai-message-square fs-lg opacity-60 me-2"></i>Addresses<span class="nav-indicator"></span><span class="text-muted fs-sm fw-normal ms-auto">8</span></a><a class="d-flex align-items-center nav-link-style px-4 py-3 border-top active" href="dashboard-followers.html"><i class="ai-users fs-lg opacity-60 me-2"></i>Messages<span class="text-muted fs-sm fw-normal ms-auto">2</span></a>
+              </div>
+
+
+      </div>
       <h1 class="h3 mb-3 text-nowrap text-sm-start">Upcoming Holidays<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2">2</span></h1>
       <div class="upcoming-holidays bg-light rounded-3 shadow-lg">
         <div class="py-2 p-md-3">
@@ -55,71 +57,68 @@
       <div class="row dashboard-upcoming-birthdays d-flex bg-light rounded-3 shadow-lg">
       <% @index=1 %>
       <% @sorting_relations.each do |sorting_relations|   %>
-      <div  id="birth_sort_block" style="margin-top:20px; margin-bottom: 20px;">
-        
-        <div class="row" id="private_info">
-          <div class="col-xs-2 avatar_part" style="padding-right: 30px;">
-            <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
-                 style="width:50px; height: 50px;">
-          </div>
-          <div class="col-xs-3 left_info_part" style="padding-right: 80px;">
-            <span>Name: <%= sorting_relations.first_name %> </span><br>
-            <span>DAYS until:
-              <%   @now=Time.now.to_date
-                   @year=Time.now.to_date.year.to_s
-                   @birthday=Date.parse(@year+ '/' +sorting_relations.date_of_birth)
-                   @until_days=(@birthday-@now).to_i
-              %>
-              <%= @until_days %>
-            </span>
-          </div>
-          <div class="col-xs-5" style="">
-            <span>Hobbies:
-              <% if @index==1 %>
-                <% @hobbies1.each do |hobby1| %>
-                   <%= hobby1.name %>,
-                <% end %>
-              <% else %>
-              <% @hobbies2.each do |hobby2| %>
-                   <%= hobby2.name %>,
-                <% end %>
-              <% end %>
-            </span><br>
-            <span>Relationship: <%= sorting_relations.relationship_name %> </span>
-          </div>
-        </div>
-
-
-        <div>
-          <% if @index==1 %>
-            <div class="row" style="padding-top: 20px; ">
-              <% @first_products.each do | products | %>
-                <div class="col-xs" style="cursor:pointer; padding-right: 80px;  ">
-                  <a href="<%= productshow_path(:id=> products.id ) %>"><%= products.name %> <br> Card</a>
-                </div>
-              <% end %>
-              <% @index=2 %>
+        <div  id="birth_sort_block" style="margin-top:20px; margin-bottom: 20px;">
+          
+          <div class="row" id="private_info">
+            <div class="col-xs-2 avatar_part" style="padding-right: 30px;">
+              <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
+                   style="width:50px; height: 50px;">
             </div>
-
-          <% else %>
-            <div class="row" >
-              <% @second_products.each do | products | %>
-                <div class="col-xs" style="cursor:pointer; padding-right: 80px;  ">
-                  <a href="<%= productshow_path(:id=> products.id ) %>"><%= products.name %> <br> Card</a>
-                </div>
-              <% end %>
+            <div class="col-xs-3 left_info_part" style="padding-right: 80px;">
+              <span>Name: <%= sorting_relations.first_name %> </span><br>
+              <span>DAYS until:
+                <%   @now=Time.now.to_date
+                     @year=Time.now.to_date.year.to_s
+                     @birthday=Date.parse(@year+ '/' +sorting_relations.date_of_birth)
+                     @until_days=(@birthday-@now).to_i
+                %>
+                <%= @until_days %>
+              </span>
             </div>
-          <% end %>
+            <div class="col-xs-5" style="">
+              <span>Hobbies:
+                <% if @index==1 %>
+                  <% @hobbies1.each do |hobby1| %>
+                     <%= hobby1.name %>,
+                  <% end %>
+                <% else %>
+                <% @hobbies2.each do |hobby2| %>
+                     <%= hobby2.name %>,
+                  <% end %>
+                <% end %>
+              </span><br>
+              <span>Relationship: <%= sorting_relations.relationship_name %> </span>
+            </div>
+          </div>
+
+
+          <div>
+            <% if @index==1 %>
+              <div class="row" style="padding-top: 20px; ">
+                <% @first_products.each do | products | %>
+                  <div class="col-xs" style="cursor:pointer; padding-right: 80px;  ">
+                    <a href="<%= productshow_path(:id=> products.id ) %>"><%= products.name %> <br> Card</a>
+                  </div>
+                <% end %>
+                <% @index=2 %>
+              </div>
+
+            <% else %>
+              <div class="row" >
+                <% @second_products.each do | products | %>
+                  <div class="col-xs" style="cursor:pointer; padding-right: 80px;  ">
+                    <a href="<%= productshow_path(:id=> products.id ) %>"><%= products.name %> <br> Card</a>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
         </div>
       <% end %>
       </div>
     </div>
 
     </div>
+
   </div>
 </div>
 
-
-
-</body>
-  
