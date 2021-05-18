@@ -1,22 +1,58 @@
-<div class="container" style="padding-top: 100px;">
-  <div class="row col-12 relations-avatars-container">
-    <% @relations.each do |relation|   %>
-      <a class="" href="<%= relationprofile_path(:id=> relation.id) %>">
-        <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
-        style="width:50px; height: 50px;">
-        <br>
-        <span><%= relation.first_name %></span>
-      </a>
-    <% end %>
-<!--     <button class="btn-primary  col-xs" style="width:100px; height:40px;">showmore</button> -->
-    <button  class="btn btn-primary col-xs" style="margin-left:15px; height:40px;"><%= link_to 'Add', addRelation_path %></button>
+<body style="background-color:#f7f7fc;">
+  
+<!--   <div class="position-relative bg-gradient" style="height: 480px;">
+    <div class="shape shape-bottom shape-slant bg-secondary d-none d-lg-block">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
+        <polygon fill="primary" points="0,257 0,260 3000,260 3000,0"></polygon>
+      </svg>
+    </div>
   </div>
-</div>
 
-<div class="container">
+ -->
+<div class="container position-relative zindex-5 pb-4 mb-md-3" style="margin-top: 100px;">
   <div class="row">
-    
-    <div class="dashboard-upcoming-birthdays col-8">
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Upcoming Holidays<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2">2</span></h1>
+      <div class="upcoming-holidays bg-light rounded-3 shadow-lg">
+        <div class="py-2 p-md-3">
+      
+          <div class="row" >
+            <% @holidays.each do | holiday |  %>
+            <div class="" style="padding-bottom: 20px;">
+              <%= holiday.name %><br>
+              <%= holiday.date %>
+            </div>
+            <% end %>
+          </div>
+        </div>          
+      </div>
+    </div>
+
+
+
+
+    <div class="col-lg-8">
+
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Relations<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2">12</span></h1>
+
+      <div class="row relations-avatars-container d-flex bg-light rounded-3 shadow-lg p-4">
+        <% @relations.each do |relation|   %>
+        <a class="" href="<%= relationprofile_path(:id=> relation.id) %>">
+          <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
+          style="width:50px; height: 50px;">
+          <br>
+          <span><%= relation.first_name %></span>
+        </a>
+        <% end %>
+        <button class="btn btn-translucent-primary btn-sm" type="button"><%= link_to 'Add', addRelation_path %></button>
+      </div>
+      <br>
+
+
+
+
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Upcoming Birthdays<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2">12</span></h1>
+      <div class="row dashboard-upcoming-birthdays d-flex bg-light rounded-3 shadow-lg p-4">
       <% @index=1 %>
       <% @sorting_relations.each do |sorting_relations|   %>
       <div  id="birth_sort_block" style="margin-top:20px; margin-bottom: 20px;">
@@ -78,23 +114,12 @@
       <% end %>
       </div>
     </div>
+
     </div>
-
-
-    <div class="upcoming-holidays col-3">
-      <div class="row" style="display:block;">
-        <h5 style="text-align: center;">upcoming holidays</h5>
-      </div>
-      <div class="row" >
-        <% @holidays.each do | holiday |  %>
-        <div class="" style="padding-right: 10px; padding-bottom: 20px;">
-          <%= holiday.name %><br>
-          <%= holiday.date %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-
   </div>
 </div>
+
+
+
+</body>
   
