@@ -8,8 +8,8 @@
       <div class="col-xs-5">
         <ul>
           <li>Name: <%= @relations.first_name %> <%= @relations.last_name %> (<%= @relation_name %>)</li>
-          <li>Hobbies: <% @hobbies.each do |hobby| %>
-            <%= hobby.name %> ,
+          <li>Hobbies: <% @hobbies.map do |hobby| %>
+            <%= hobby.name %>,
           <% end %></li>
         </ul>
       </div>
