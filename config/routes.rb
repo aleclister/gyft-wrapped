@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get  'relationprofile', to:  'relations#relationprofile', as: :relationprofile
   get 'addRelation', to: 'relations#add',    as: :addRelation
   post 'relations', to:'relations#create', as: :relations
+  get 'all-relations', to: 'relations#index', as: :allrelations
   get 'product', to: 'products#show', as: :productshow
-  get 'all-products', to:  'products#index', as: :productindex
+  get 'all-products', to: 'products#index', as: :productindex
   post  'products/_data_stats', to: 'products#index', as: :product_data_stats
   # get 'tags/:tag', to: 'relations#index', as: :tag
   resources :users

@@ -14,7 +14,6 @@ class RelationsController < ApplicationController
   def index
     @relation = Relation.new
     @relations = Relation.all
-    
   end
 
   def create

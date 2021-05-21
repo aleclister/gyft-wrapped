@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-def dashboard
+  def dashboard
     @now=Time.now
     @next_month=@now.next_month
     @month=@now.to_date.month
