@@ -11,6 +11,12 @@ class RelationsController < ApplicationController
     @prices=Price.all
   end
 
+  def index
+    @relation = Relation.new
+    @relations = Relation.all
+    
+  end
+
   def create
     @array_with_null = params[:relation][:hobbies_id]
     @hobbies_array = @array_with_null.join(' ').split
@@ -53,4 +59,32 @@ class RelationsController < ApplicationController
     end
     return @level_date=@month_str+ "/" + @day_str
   end
+
+
+  def relationprofile
+    @id=params[:id]
+    @relations = Relation.where(id:@id).first
+    if current_user.present?
+      if current_user.id==@relations.user_id
+        @birthday=@relations.date_of_birth.to_date
+        @hobbies_id=Relation.where(id:@id).first.hobbies_id
+        puts "hobbies===>", @hobbies_id
+        @format='('+@hobbies_id+')'
+        @hobbies=Hobby.where("id in " + @format).all
+        @relation_name=Relationship.where(id:@relations.relation_to).first.name
+        @from=Price.joins("INNER JOIN relations ON prices.id=relations.price_range").where('relations.id='+
+                                                                                             @id.to_s).first.from_price
+        @to=Price.joins("INNER JOIN relations ON prices.id=relations.price_range").where('relations.id='+
+                                                                                           @id.to_s).first.to_price
+        @products=Product.joins("INNER JOIN relations ON  relations.gender=products.gender").where('relations.id='+ @id.to_s +
+                                                                                                     ' and  products.hobby_id in'+@format +' and products.price>? and products.price<?', @from, @to)
+        puts  @relations.relation_to
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
 end

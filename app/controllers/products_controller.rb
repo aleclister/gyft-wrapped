@@ -8,13 +8,13 @@ class ProductsController < ApplicationController
   end
 
 
-
   def index
     if request.xhr?
       @product=Product.new
       @prices=Price.all
       @genders=Gender.all
       @ages=Age.all
+      
       puts "there is ajax request!!!!!"
         if params[:hobby_id]
           if params[:hobby_id].present?
