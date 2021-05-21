@@ -1,27 +1,32 @@
-<div class="container">
-  <div style="padding: 100px 20px 100px 20px;">
-    <h3 style="text-align: center;">All Gift</h3>
-    <div class="row">
-      <%= simple_form_for @product, url:relations_path do |f| %>
-        <%= f.input :hobby_id,  as: :select, collection: Hobby.order(:name), label_method: :name, input_html: {multiple: true} %>
-      <% end %>
-      <%= simple_form_for @product, url:relations_path do |f| %>
-        <%= f.label :price,required: true %>
-        <%= f.select :price, @prices.collect { |price| [price.detail, price.id] } %>
-      <% end %>
-      <%= simple_form_for @product, url:relations_path do |f| %>
-        <%= f.label :gender,required: true %>
-        <%= f.select :gender, @genders.collect { |gender| [gender.name, gender.id] } %>
-      <% end %>
+<div class="container mb-5 pb-3 pb-lg-0 mb-lg-7" style="margin-top: 100px;">
 
-      <%= simple_form_for @product, url:relations_path do |f| %>
-        <%= f.label :age,required: true %>
-        <%= f.select :age, @ages.collect { |age| [age.details, age.id] } %>
-      <% end %>
-    </div>
-    <%= render partial: "data_stats" %>
+  <h2 class="pb-4 mb-4 text-center">All Gifts</h2>
+  <div class="row mb-3 text-center">
+    <%= simple_form_for @product, url:relations_path do |f| %>
+      <%= f.input :hobby_id,  as: :select, collection: Hobby.order(:name), label_method: :name, input_html: {multiple: true} %>
+    <% end %>
+    <%= simple_form_for @product, url:relations_path do |f| %>
+      <%= f.label :price,required: true %>
+      <%= f.select :price, @prices.collect { |price| [price.detail, price.id] } %>
+    <% end %>
+    <%= simple_form_for @product, url:relations_path do |f| %>
+      <%= f.label :gender,required: true %>
+      <%= f.select :gender, @genders.collect { |gender| [gender.name, gender.id] } %>
+    <% end %>
+
+    <%= simple_form_for @product, url:relations_path do |f| %>
+      <%= f.label :age,required: true %>
+      <%= f.select :age, @ages.collect { |age| [age.details, age.id] } %>
+    <% end %>
   </div>
+  
+  <%= render partial: "data_stats" %>
+
 </div>
+
+
+
+
 <script>
   $(function () {
       $("#product_price").change(function() {

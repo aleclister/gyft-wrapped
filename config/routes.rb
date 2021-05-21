@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   get 'about',    to: 'pages#about' ,     as: :about
   get 'contact',  to: 'pages#contact',    as: :contact
   get 'dashboard', to: 'users#dashboard',     as: :dashboard
+
+  get 'all-relations', to: 'relations#index', as: :allrelations
   get  'relation', to:  'relations#show', as: :relation
   get 'addRelation', to: 'relations#add',    as: :addRelation
   post 'relations', to:'relations#create', as: :relations
-  get 'all-relations', to: 'relations#index', as: :allrelations
-  get 'product', to: 'products#show', as: :productshow
+  
   get 'all-products', to: 'products#index', as: :productindex
+  get 'product', to: 'products#show', as: :product
   post  'products/_data_stats', to: 'products#index', as: :product_data_stats
   # get 'tags/:tag', to: 'relations#index', as: :tag
   resources :users

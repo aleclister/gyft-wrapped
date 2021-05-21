@@ -1,19 +1,18 @@
-<div class="row" id="data_stats">
-  <div id="products" class="row">
-    <% @products.each do |product| %>
-      <div class="col-xs" style="padding-right: 30px;">
-        <div class="row">
-          <div class="col-xs">
-            <img src="<%= asset_url 'default_avatar.png' %>">
-          </div>
-          <div class="col-xs">
-            <span>Product</span><br>
-            <span><%= product.name %></span><br>
-            <span><%= product.price %></span><br>
-          </div>
+<div class="row mb-3" id="data_stats">
+
+  <% @products.each do |product| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
+
+
+      <a class="card card-curved-body card-hover border-0 shadow mx-auto" href="<%= product_path(:id=> product.id) %>" style="max-width: 21rem;">
+        <div class="card-img-top card-img-gradient"></div>
+        <div class="card-body text-center" href="<%= product_path(:id=> product.id) %>">
+          <br>
+          <h3 class="h6 card-title mb-2"><%= product.name %></h3>
+          <p class="fs-xs text-body mb-0">$<%= product.price %></p>
         </div>
-      </div>
-    <% end %>
-  </div>
+      </a>
+    </div>
+  <% end %>
 
 </div>
