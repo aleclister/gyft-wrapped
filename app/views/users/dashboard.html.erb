@@ -3,7 +3,7 @@
   <div class="row">
 
     <div class="col-lg-4 mb-4 mb-lg-0">
-      <h1 class="h3 mb-3 text-nowrap text-sm-start">Welcome Alec</h1>
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Welcome <%= current_user.first_name %></h1>
       <div class=" dash-user-menu rounded-3 shadow-lg">
 
 
@@ -68,16 +68,17 @@
                    style="width:50px; height: 50px;">
             </div>
             <div class="col-xs-3 left_info_part" style="padding-right: 80px;">
-              <span>Name: <%= sorting_relations.first_name %> </span><br>
-              <span>DAYS until:
+              <span><%= sorting_relations.first_name + " " + sorting_relations.last_name %></span><br>
+              <span>Birthday:
                 <%   @now=Time.now.to_date
                      @year=Time.now.to_date.year.to_s
                      @birthday=Date.parse(@year+ '/' +sorting_relations.date_of_birth)
                      @until_days=(@birthday-@now).to_i %>
                 <%= @until_days %>
+                days
               </span>
             </div>
-            <div class="col-xs-5" style="">
+            <div class="col-xs-5">
               <span>Hobbies:
                 <% if @index==1 %>
                   <% @hobbies1.each do |hobby1| %>
