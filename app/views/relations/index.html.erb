@@ -6,9 +6,9 @@
 
 		<% @relations.each do |relation|   %>
 		  <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-		    <a class="card card-curved-body card-hover border-0 shadow mx-auto" href="<%= relationprofile_path(:id=> relation.id) %>" style="max-width: 21rem;">
+		    <a class="card card-curved-body card-hover border-0 shadow mx-auto" href="<%= relation_path(:id=> relation.id) %>" style="max-width: 21rem;">
 		      <div class="card-img-top card-img-gradient"></div>
-		      <div class="card-body text-center" href="<%= relationprofile_path(:id=> relation.id) %>">
+		      <div class="card-body text-center" href="<%= relation_path(:id=> relation.id) %>">
 		        <h3 class="h6 card-title mb-2"><%= relation.first_name %></h3>
 		        <p class="fs-xs text-body mb-0"><%= relation.last_name %></p>
 		      </div>

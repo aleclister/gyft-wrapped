@@ -60,7 +60,7 @@ class RelationsController < ApplicationController
   end
 
 
-  def relationprofile
+  def show
     @id=params[:id]
     @relations = Relation.where(id:@id).first
     if current_user.present?

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'about',    to: 'pages#about' ,     as: :about
   get 'contact',  to: 'pages#contact',    as: :contact
   get 'dashboard', to: 'users#dashboard',     as: :dashboard
-  get  'relationprofile', to:  'relations#relationprofile', as: :relationprofile
+  get  'relation', to:  'relations#show', as: :relation
   get 'addRelation', to: 'relations#add',    as: :addRelation
   post 'relations', to:'relations#create', as: :relations
   get 'all-relations', to: 'relations#index', as: :allrelations
