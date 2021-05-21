@@ -19,7 +19,7 @@
 
 
       </div>
-      <h1 class="h3 mb-3 text-nowrap text-sm-start">Upcoming Holidays<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2">2</span></h1>
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Upcoming Holidays<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2"><%= @holidays.count %></span></h1>
       <div class="upcoming-holidays bg-light rounded-3 shadow-lg">
         <div class="py-2 p-md-3">
       
@@ -34,7 +34,6 @@
         </div>          
       </div>
     </div>
-
 
 
     <div class="col-lg-8">
@@ -53,7 +52,6 @@
         <div class="mb-3">
           <button class="btn btn-primary btn-sm" type="button"><%= link_to 'Add', addRelation_path %></button>
         </div>
-        
       </div>
       <br>
 

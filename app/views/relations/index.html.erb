@@ -1,6 +1,28 @@
-<div class="container">
-	<% @relations.each do |relation|   %>
-	<span><%= relation.first_name %></span>
-	<% end %>
 
+<div class="container mb-5 pb-3 pb-lg-0 mb-lg-7" style="margin-top: 100px;">
+	<h2 class="pb-4 mb-4 text-center">Your Relations</h2>
+
+	<div class="row mb-3">
+
+		<% @relations.each do |relation|   %>
+		  <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
+		    <a class="card card-curved-body card-hover border-0 shadow mx-auto" href="<%= relationprofile_path(:id=> relation.id) %>" style="max-width: 21rem;">
+		      <div class="card-img-top card-img-gradient"></div>
+		      <div class="card-body text-center" href="<%= relationprofile_path(:id=> relation.id) %>">
+		        <h3 class="h6 card-title mb-2"><%= relation.first_name %></h3>
+		        <p class="fs-xs text-body mb-0"><%= relation.last_name %></p>
+		      </div>
+		    </a>
+		  </div>
+		  <% end %>
+
+
+	<div class="card card-body py-5 text-center text-md-end">
+	  <div class="d-md-flex justify-content-center align-items-center">
+	    <div class="mb-4 mb-md-0 me-md-5 me-lg-6 me-xl-7">
+	      <h3>Want to see more of your friends, family and colleagues?</h3>
+	      <p class="text-muted mb-0">Add them right here!</p>
+	    </div><button class="btn btn-gradient"><%= link_to 'Add Relation', addRelation_path %></button>
+	  </div>
+	</div>
 </div>
