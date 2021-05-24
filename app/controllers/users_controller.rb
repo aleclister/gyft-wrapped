@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def dashboard
     @now=Time.now
+
     @next_month=@now.next_month
     @month=@now.to_date.month
     @day=@now.to_date.day
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
     # puts @now
     @first_relation=Relation.select('*').where('relations.user_id=? and relations.date_of_birth>? and
     relations.date_of_birth<?',current_user.id.to_s, @level_now, @level_next).order(date_of_birth: :ASC).limit(1).first
+
     if @first_relation
       @first_id=@first_relation.id
       @hobbies_id1=Relation.where(id:@first_id).first.hobbies_id
@@ -30,6 +32,7 @@ class UsersController < ApplicationController
        ' and  products.hobby_id in'+@format1 +' and products.price>? and products.price<?', @from1, @to1)
       @second_relation=Relation.select('*').where('relations.user_id=? and relations.date_of_birth>? and
       relations.date_of_birth<?',current_user.id.to_s, @level_now, @level_next).order(date_of_birth: :ASC).limit(2).last
+      
       if @second_relation && @second_relation!=@first_relation
         @second_id=@second_relation.id
         @hobbies_id2=Relation.where(id:@second_id).first.hobbies_id

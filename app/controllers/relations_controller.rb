@@ -2,6 +2,14 @@ class RelationsController < ApplicationController
   # def index
   #   @relations = Relation.tagged_with(params[:tag]) : @relations = Relation.all
   # end
+  
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+  def index
+    @relation = Relation.new
+    @relations = Relation.all
+  end
+
 
   def add
     @relationships=Relationship.all
@@ -11,10 +19,6 @@ class RelationsController < ApplicationController
     @prices=Price.all
   end
 
-  def index
-    @relation = Relation.new
-    @relations = Relation.all
-  end
 
   def create
     @array_with_null = params[:relation][:hobbies_id]
@@ -34,10 +38,31 @@ class RelationsController < ApplicationController
     end
   end
 
-  def user_params
-    params.require(:relation).permit(:first_name, :last_name,  :gender, :relation_to,
-     :price_range,  :user_id)
+  def edit
+    @relation = Relation.find(params[:id])
+  end
 
+  def update
+    raise params.inspect
+    # @relation = Relation.find(params[:id])
+    # @relation.update(relation_params)
+    # if @relation.save
+    #   redirect_to relation_path(@relation)
+    # else 
+    #   render :edit
+    # end
+  end
+
+  def destroy
+    @relation = Relation.find(params[:id])
+    authorize @relation
+    # Then try to delete
+    @relation.destroy
+    redirect_to dashboard_path
+  end
+
+  def relation_params
+    params.require(:relation).permit(:first_name, :last_name, :gender, :relation_to, :price_range, :user_id)
   end
 
   def age(dob)
@@ -61,8 +86,9 @@ class RelationsController < ApplicationController
 
 
   def show
-    @id=params[:id]
+    @id = params[:id]
     @relations = Relation.where(id:@id).first
+
     if current_user.present?
       if current_user.id==@relations.user_id
         @birthday=@relations.date_of_birth.to_date
@@ -84,6 +110,10 @@ class RelationsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def self.categories
+    return ["Family", "Friends", "Colleagues", "Acquaintances"]  
   end
 
 end
