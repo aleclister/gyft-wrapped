@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get  'relation/:id', to:  'relations#show', as: :relation
   get 'relation/:id/edit', to: 'relations#edit', as: :edit_relation
   patch 'relation/:id', to: 'relations#update'
+  delete 'relation/:id', to: 'relations#destroy'
 
   
   get 'products', to: 'products#index', as: :productindex
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resources :relations, only: [:index, :show, :new, :create, :edit, :update]
+  # resources :relations, only: [:index, :show, :new, :create, :edit, :update]
 
 
 

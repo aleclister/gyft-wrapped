@@ -5,6 +5,8 @@ class RelationsController < ApplicationController
   
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+
+
   def index
     @relation = Relation.new
     @relations = Relation.all
@@ -29,7 +31,7 @@ class RelationsController < ApplicationController
     @day = @birthday.to_date.day
     @date_of_birth=generate_date(@month,@day)
     @age = age(@birthday.to_date)
-    @relation = Relation.new(user_params.merge(date_of_birth:@date_of_birth, age:@age, hobbies_id:@hobbies))
+    @relation = Relation.new(relation_params.merge(date_of_birth:@date_of_birth, age:@age, hobbies_id:@hobbies))
     # puts "birthday===>", @birthday, "dateofbirth==>", @month, @day, @date_of_birth, "age==>",@age
     if @relation.save
       redirect_to dashboard_path
@@ -38,37 +40,39 @@ class RelationsController < ApplicationController
     end
   end
 
+
   def edit
     @relation = Relation.find(params[:id])
   end
 
+
   def update
-    raise params.inspect
-    # @relation = Relation.find(params[:id])
-    # @relation.update(relation_params)
-    # if @relation.save
+    @relation = Relation.find(params[:id])
+    # raise params.inspect
+
+    @relation.update(relation_params)
+    redirect_to relation_path(@relation)
+
+    # if @relation.update(relation_params)
     #   redirect_to relation_path(@relation)
     # else 
     #   render :edit
     # end
   end
 
+
   def destroy
     @relation = Relation.find(params[:id])
-    authorize @relation
-    # Then try to delete
     @relation.destroy
     redirect_to dashboard_path
   end
 
-  def relation_params
-    params.require(:relation).permit(:first_name, :last_name, :gender, :relation_to, :price_range, :user_id)
-  end
 
   def age(dob)
     now = Time.now.to_date
     return now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
+
 
   def generate_date(month, day)
     if month<10
@@ -112,8 +116,16 @@ class RelationsController < ApplicationController
     end
   end
 
+
   def self.categories
     return ["Family", "Friends", "Colleagues", "Acquaintances"]  
+  end
+
+
+  private
+
+  def relation_params
+    params.require(:relation).permit(:first_name, :last_name, :gender, :relation_to, :price_range, :user_id)
   end
 
 end

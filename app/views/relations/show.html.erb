@@ -21,7 +21,19 @@
       </div>
     </div>
 
+   <br>
+   <br>
+   <br>
+   <br>
+
+   <div class="text-center">
+      <p>Edit relation? <%= link_to "Click here", relation_path(@relations), method: :patch %></p>
+      <p>Remove relation? <%= link_to "Click here", relation_path(@relations), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= link_to "Back", :back %>
   
+   </div>
+
     <div class="row" style="padding-top: 20px; ">
       <% @products.each do | product | %>
         <div class="col-xs" style="cursor:pointer; padding-right: 80px;  ">
