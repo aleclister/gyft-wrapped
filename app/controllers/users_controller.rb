@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @relations = Relation.where('user_id=? ', current_user.id).order(date_of_birth: :ASC)
     @sorting_relations=Relation.joins(" INNER JOIN relationships ON relationships.id=relations.relation_to").select(
       'relations.*, relationships.name as relationship_name').where('relations.user_id=? and relations.date_of_birth>? and
-    relations.date_of_birth<?',current_user.id.to_s, @level_now, @level_next ).order(date_of_birth: :ASC).limit(2)
+    relations.date_of_birth<?',current_user.id.to_s, @level_now, @level_next ).order(date_of_birth: :ASC).limit(3)
     # @t="2021-04-03".to_time
     # puts @now
     @first_relation=Relation.select('*').where('relations.user_id=? and relations.date_of_birth>? and
@@ -48,11 +48,15 @@ class UsersController < ApplicationController
       end
     end
 
+    ## Dashboard => Upcoming birthdays section
+    # @upcoming_birthdays = Relation.where('user_id=?', current_user.id).sort_by(&:next_birthday).first(5)
+
+
     @t=Time.now
     @level=@t.strftime("%Y-%m-%d")
     @holidays=Holiday.where('real_date> ?', @level).order(real_date: :ASC).limit(5)
-    # puts @sorting_relations
-    # puts @sorting_hobbies
+
+
   end
 
 

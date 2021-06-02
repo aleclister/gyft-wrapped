@@ -4,16 +4,17 @@ class RelationsController < ApplicationController
   # end
   
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_relation, only: [ :edit, :update, :destroy]
+  before_action :all_relations, only: [ :index, :upcoming_birthdays, :next_birthday]
 
 
 
   def index
     @relation = Relation.new
-    @relations = Relation.all
   end
 
 
-  def add
+  def new
     @relationships=Relationship.all
     @hobbies=Hobby.all
     @genders=Gender.all
@@ -27,6 +28,7 @@ class RelationsController < ApplicationController
     @hobbies_array = @array_with_null.join(' ').split
     @hobbies = @hobbies_array.map(&:inspect).join(",")
     @birthday = params[:relation][:date_of_birth]
+    @year = @birthday.to_date.year
     @month = @birthday.to_date.month
     @day = @birthday.to_date.day
     @date_of_birth=generate_date(@month,@day)
@@ -42,12 +44,10 @@ class RelationsController < ApplicationController
 
 
   def edit
-    @relation = Relation.find(params[:id])
   end
 
 
   def update
-    @relation = Relation.find(params[:id])
     # raise params.inspect
 
     @relation.update(relation_params)
@@ -62,7 +62,6 @@ class RelationsController < ApplicationController
 
 
   def destroy
-    @relation = Relation.find(params[:id])
     @relation.destroy
     redirect_to dashboard_path
   end
@@ -123,6 +122,14 @@ class RelationsController < ApplicationController
 
 
   private
+
+  def find_relation 
+    @relation = Relation.find(params[:id])
+  end
+
+  def all_relations
+    @relations = Relation.all
+  end
 
   def relation_params
     params.require(:relation).permit(:first_name, :last_name, :gender, :relation_to, :price_range, :user_id)

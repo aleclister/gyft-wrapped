@@ -11,7 +11,7 @@
               <div class="d-lg-block collapse pb-2" id="account-menu">
                 <h3 class="text-center d-block fs-sm fw-semibold text-muted mb-0 px-4 py-3">Dashboard</h3>
 
-                <a class=""><%= link_to 'All Relations', allrelations_path, class: "d-flex align-items-center nav-link-style px-4 py-3" %> </a> <!-- <span class="text-muted fs-sm fw-normal ms-auto">12</span> -->
+                <a class=""><%= link_to 'All Relations', relations_path, class: "d-flex align-items-center nav-link-style px-4 py-3" %> </a> <!-- <span class="text-muted fs-sm fw-normal ms-auto">12</span> -->
 
                   <a class="d-flex align-items-center nav-link-style px-4 py-3 border-top" href="dashboard-sales.html">
                     <i class="ai-dollar-sign fs-lg opacity-60 me-2"></i>Orders<span class="text-muted fs-sm fw-normal ms-auto">4</span></a><a class="d-flex align-items-center nav-link-style px-4 py-3 border-top" href="dashboard-messages.html"><i class="ai-message-square fs-lg opacity-60 me-2"></i>Addresses<span class="nav-indicator"></span><span class="text-muted fs-sm fw-normal ms-auto">8</span></a><a class="d-flex align-items-center nav-link-style px-4 py-3 border-top active" href="dashboard-followers.html"><i class="ai-users fs-lg opacity-60 me-2"></i>Messages<span class="text-muted fs-sm fw-normal ms-auto">2</span></a>
@@ -50,20 +50,23 @@
         </a>
         <% end %>
         <div class="">
-          <button class="btn btn-outline-primary" type="button"><%= link_to 'Add', addRelation_path %></button>
+          <button class="btn btn-outline-primary" type="button"><%= link_to 'Add', new_relation_path %></button>
         </div>
       </div>
       <br>
 
 
 
-      <h1 class="h3 mb-3 text-nowrap text-sm-start">Upcoming Birthdays<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2">2</span></h1>
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Upcoming Birthdays</h1>
       <div class="row dashboard-upcoming-birthdays d-flex bg-light rounded-3 shadow-lg">
+
+
       <% @index=1 %>
       <% @sorting_relations.each do |sorting_relations|   %>
         <div  id="birth_sort_block" style="margin-top:20px; margin-bottom: 20px;">
           
           <div class="row" id="private_info">
+
             <div class="col-xs-2 avatar_part" style="padding-right: 30px;">
               <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
                    style="width:50px; height: 50px;">
@@ -79,7 +82,9 @@
                 days
               </span>
             </div>
+
             <div class="col-xs-5">
+              <span><%= sorting_relations.first_name %> will be <%= @year %> </span>
               <span>Hobbies:
                 <% if @index==1 %>
                   <% @hobbies1.each do |hobby1| %>
@@ -93,6 +98,7 @@
               </span><br>
               <span>Relationship: <%= sorting_relations.relationship_name %> </span>
             </div>
+
           </div>
 
 

@@ -16,6 +16,7 @@
       <div class="col-xs-5">
         <ul>
           <li>Price range: $<%= @from.floor %> ~ $<%= @to.floor %></li>
+          <li>Birthday: <%= @relations.date_of_birth %></li>
           <li>Birthday: <%= @birthday.month.to_s+ '-' +@birthday.day.to_s+ '-' +@birthday.year.to_s %> </li>
         </ul>
       </div>
@@ -27,10 +28,10 @@
    <br>
 
    <div class="text-center">
-      <p>Edit relation? <%= link_to "Click here", relation_path(@relations), method: :patch %></p>
+      <!-- <p>Edit relation? <%= link_to "Click here", relation_path(@relations), method: :patch %></p>  -->
       <p>Remove relation? <%= link_to "Click here", relation_path(@relations), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-      <%= link_to "Back", :back %>
+      <%= link_to "Back", :dashboard %>
   
    </div>
 
