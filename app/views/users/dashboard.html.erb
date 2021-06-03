@@ -40,17 +40,20 @@
 
       <h1 class="h3 mb-3 text-nowrap text-sm-start">Relations<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2"><%= Relation.all.count %></span></h1>
 
-      <div class="row relations-avatars-container d-flex bg-light rounded-3 shadow-lg p-4">
+      <div class="row text-center relations-avatars-container d-flex bg-light rounded-3 shadow-lg p-4">
         <% @relations.each do |relation|   %>
-        <a class="" href="<%= relation_path(:id=> relation.id) %>">
-          <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
-          style="width:50px; height: 50px;">
-          <br>
+        
+        <a class="col-xs-3 relation-list" href="<%= relation_path(:id=> relation.id) %>">
+          <div class="avatar"> 
+            <span><%= relation.first_name.first %><%= relation.last_name.first %><span>
+          </div>
           <span><%= relation.first_name %></span>
         </a>
+
         <% end %>
+
         <div class="">
-          <button class="btn btn-outline-primary" type="button"><%= link_to 'Add', new_relation_path %></button>
+          <button class="btn btn-outline-primary" style="align-items:center;" type="button"><%= link_to 'Add', new_relation_path %></button>
         </div>
       </div>
       <br>
@@ -63,11 +66,11 @@
 
       <% @index=1 %>
       <% @sorting_relations.each do |sorting_relations|   %>
-        <div  id="birth_sort_block" style="margin-top:20px; margin-bottom: 20px;">
+        <div style="margin-top:20px; margin-bottom: 20px;">
           
           <div class="row" id="private_info">
 
-            <div class="col-xs-2 avatar_part" style="padding-right: 30px;">
+            <div class="col-xs-2" style="padding-right: 30px;">
               <img src="<%= asset_url  'default_avatar.png' %>"  class="rounded-circle  mb-2"
                    style="width:50px; height: 50px;">
             </div>
@@ -132,3 +135,23 @@
   </div>
 </div>
 
+
+<script>
+  const colors = ['#8fd9a8', '#8ab6d6', '#fbbedf', '#939393', '#f6efa6', '#f6ab6c', '#949cdf'];
+
+  function numberFromText(text) {
+    // numberFromText("AA");
+    const charCodes = text
+      .split('') // => ["A", "A"]
+      .map(char => char.charCodeAt(0)) // => [65, 65]
+      .join(''); // => "6565"
+    return parseInt(charCodes, 10);
+  }
+
+  const avatars = document.querySelectorAll('.avatar');
+
+  avatars.forEach(avatar => {
+    const text = avatar.innerText; // => "AA"
+    avatar.style.backgroundColor = colors[numberFromText(text) % colors.length]; // => "#DC2A2A"
+  });
+</script>

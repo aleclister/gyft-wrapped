@@ -6,6 +6,7 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("channels")
+
 //= require bootstrap-datepicker
 //= require chosen
 //= require jquery
@@ -22,6 +23,7 @@ global.$ = require("jquery")
 require("jquery") // Don't really need to require this...
 require("jquery-ui")
 require("chosen-js")
+require("components/avatar")
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
