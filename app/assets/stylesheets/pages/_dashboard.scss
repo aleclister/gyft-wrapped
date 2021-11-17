@@ -1,10 +1,13 @@
 .relations-avatars-container {
-	background-color: white;
-	// padding: 30px;
-	display: flex;
-	border-radius: 8px;
-	text-align: center;
 	margin-right: 10px;
+	align-items: center;
+}
+
+
+.relation-list {
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 
