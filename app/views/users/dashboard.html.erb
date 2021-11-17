@@ -38,7 +38,7 @@
 
     <div class="col-lg-8">
 
-      <h1 class="h3 mb-3 text-nowrap text-sm-start">Relations<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2"><%= Relation.all.count %></span></h1>
+      <h1 class="h3 mb-3 text-nowrap text-sm-start">Relations<span class="d-inline-block align-middle bg-faded-dark fs-ms fw-medium rounded-1 py-1 px-2 ms-2"><%= @relations.count %></span></h1>
 
       <div class="row text-center relations-avatars-container d-flex bg-light rounded-3 shadow-lg p-4">
         <% @relations.each do |relation|   %>
@@ -87,7 +87,7 @@
             </div>
 
             <div class="col-xs-5">
-              <span><%= sorting_relations.first_name %> will be <%= @year %> </span>
+            
               <span>Hobbies:
                 <% if @index==1 %>
                   <% @hobbies1.each do |hobby1| %>
